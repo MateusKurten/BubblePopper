@@ -11,6 +11,10 @@ function setup(){
     bubble.mostrar();
 }
 
+function draw(){
+    bubble.flutuar();
+    bubble.mostrar();
+}
 
 function mousePressed(){
     bubble.estourar();
@@ -24,6 +28,12 @@ class Bubble{
         this.y = y;
     }
 
+    flutuar(){
+        clear();
+        this.x += random(2,-2);
+        this.y += random(2,-2);
+    }
+
     mostrar(){
         stroke("black");
         strokeWeight(4);
@@ -31,7 +41,7 @@ class Bubble{
     }
     
     estourar(){
-        d = dist(mouseX, mouseY, this.x, this.y)
+        d = dist(mouseX, mouseY, this.x, this.y);
         if (d < 25){
             popped.play();
             clear();
