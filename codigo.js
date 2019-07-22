@@ -1,5 +1,6 @@
 var bubble;
 var d;
+var contador = 0;
 var popped = new Audio('pop.mp3');
 
 function setup(){
@@ -28,7 +29,7 @@ class Bubble{
         this.y = y;
     }
 
-    flutuar(){
+    flutuar(){ 
         clear();
         this.x += random(2,-2);
         this.y += random(2,-2);
@@ -41,13 +42,15 @@ class Bubble{
     }
     
     estourar(){
-        d = dist(mouseX, mouseY, this.x, this.y)
+        d = dist(mouseX, mouseY, this.x, this.y);
         if (d < 25){
             popped.play();
             clear();
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
             this.mostrar();
+            contador += 1;
+            document.getElementById("contador").innerHTML = "Bubbles popped: " + contador;
     }
 }
 }
