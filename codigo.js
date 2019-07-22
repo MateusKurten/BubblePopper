@@ -1,5 +1,6 @@
 var bubble;
 var d;
+var contador = 0;
 var popped = new Audio('pop.mp3');
 
 function setup(){
@@ -48,6 +49,8 @@ class Bubble{
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
             this.mostrar();
+            contador += 1;
+            document.getElementById("contador").innerHTML = "Bubbles popped: " + contador;
     }
 }
 }
