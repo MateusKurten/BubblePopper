@@ -22,6 +22,7 @@ function draw(){
     bubble.mostrar();
 }
 
+
 function mousePressed(){
     bubble.estourar();
 }
@@ -51,13 +52,17 @@ class Bubble{
         ellipse(this.x, this.y, 50, 50);
     }
     
+    aparecerImagem(){
+    image(img, this.x, this.y, 50, 50);
+    noLoop();
+    }
+    
     estourar(){
         d = dist(mouseX, mouseY, this.x, this.y);
         if (d < 25){
             popped.play();
             clear();
-            image(img, this.x, this.y, 50, 50);
-            noLoop();
+            this.aparecerImagem();
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
             contador += 1;
