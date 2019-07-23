@@ -2,11 +2,6 @@ var bubble;
 var d;
 var contador = 0;
 var popped = new Audio('pop.mp3');
-let img;
-
-function preload(){
-    img = loadImage('images/popped.png');
-}
 
 function setup(){
     createCanvas(800,600);
@@ -25,11 +20,6 @@ function draw(){
 
 function mousePressed(){
     bubble.estourar();
-}
-
-function mouseReleased(){
-    clear();
-    loop();
 }
 
 // Class Bubble
@@ -52,17 +42,11 @@ class Bubble{
         ellipse(this.x, this.y, 50, 50);
     }
     
-    aparecerImagem(){
-    image(img, this.x, this.y, 50, 50);
-    noLoop();
-    }
-    
     estourar(){
         d = dist(mouseX, mouseY, this.x, this.y);
         if (d < 25){
             popped.play();
             clear();
-            this.aparecerImagem();
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
             contador += 1;
