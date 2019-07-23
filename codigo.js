@@ -24,7 +24,6 @@ function draw(){
 
 function mousePressed(){
     bubble.estourar();
-    noLoop();
 }
 
 function mouseReleased(){
@@ -58,6 +57,7 @@ class Bubble{
             popped.play();
             clear();
             image(img, this.x, this.y, 50, 50);
+            noLoop();
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
             contador += 1;
