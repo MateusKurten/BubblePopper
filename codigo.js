@@ -24,6 +24,12 @@ function draw(){
 
 function mousePressed(){
     bubble.estourar();
+    noLoop();
+}
+
+function mouseReleased(){
+    clear();
+    loop();
 }
 
 // Class Bubble
@@ -54,7 +60,6 @@ class Bubble{
             image(img, this.x, this.y, 50, 50);
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
-            this.mostrar();
             contador += 1;
             document.getElementById("contador").innerHTML = "Bubbles popped: " + contador;
     }
