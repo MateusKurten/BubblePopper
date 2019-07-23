@@ -2,6 +2,11 @@ var bubble;
 var d;
 var contador = 0;
 var popped = new Audio('pop.mp3');
+let img;
+
+function preload(){
+    img = loadImage('images/popped.png');
+}
 
 function setup(){
     createCanvas(800,600);
@@ -46,6 +51,7 @@ class Bubble{
         if (d < 25){
             popped.play();
             clear();
+            image(img, this.x, this.y, 50, 50);
             this.x = 50 + Math.random()*700;
             this.y = 50 + Math.random()*500;
             this.mostrar();
